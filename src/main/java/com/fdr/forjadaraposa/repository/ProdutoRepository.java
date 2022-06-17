@@ -29,6 +29,9 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long>
 	
 	public List<Produto> findByValorGreaterThanEqualOrderByValorDesc(BigDecimal valor);
 
+	// Ordem recente
+	public List<Produto> findByIdGreaterThanEqualOrderByIdDesc(Long id);
+	
 	
 	//findByNomeOrderByDataValidade
 

@@ -84,6 +84,12 @@ public class ProdutoController
 	{
 		return ResponseEntity.ok(produtoRepository.findByValorLessThanEqualOrderByValorDesc(valor));
 	}
+	//Produto Recente
+	@GetMapping("/recente/{id}")
+	public ResponseEntity<List<Produto>> getByRecente(@PathVariable Long id)
+	{
+		return ResponseEntity.ok(produtoRepository.findByIdGreaterThanEqualOrderByIdDesc(id));
+	}
 
 	@PostMapping
 	public ResponseEntity<Produto> postProduto(@Valid @RequestBody Produto produto)
