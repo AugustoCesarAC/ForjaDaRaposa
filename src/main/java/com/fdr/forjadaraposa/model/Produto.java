@@ -47,6 +47,8 @@ public class Produto
 	@Digits(fraction = 3, integer = 8, message = "Somente até três casas decimais")
 	private BigDecimal peso;
 	
+	private String foto;
+	
 	@Column(columnDefinition = "integer default 0")
 	private int curtir;
 	
@@ -56,6 +58,10 @@ public class Produto
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
 	private Categoria categoria;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("produto")
+	private Usuario usuario;
 
 	public Long getId()
 	{
@@ -65,6 +71,28 @@ public class Produto
 	public void setId(Long id)
 	{
 		this.id = id;
+	}
+	
+	
+
+	public Usuario getUsuario()
+	{
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario)
+	{
+		this.usuario = usuario;
+	}
+
+	public String getFoto()
+	{
+		return foto;
+	}
+
+	public void setFoto(String foto)
+	{
+		this.foto = foto;
 	}
 
 	public String getNome()
