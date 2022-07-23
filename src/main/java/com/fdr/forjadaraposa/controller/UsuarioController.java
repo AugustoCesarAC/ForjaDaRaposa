@@ -22,8 +22,6 @@ import com.fdr.forjadaraposa.model.UsuarioLogin;
 import com.fdr.forjadaraposa.repository.UsuarioRepository;
 import com.fdr.forjadaraposa.service.UsuarioService;
 
-
-
 @RestController
 @RequestMapping("/usuarios")
 @CrossOrigin(origins = "*", allowedHeaders = "*")

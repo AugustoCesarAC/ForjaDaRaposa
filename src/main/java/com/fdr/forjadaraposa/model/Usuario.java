@@ -28,9 +28,6 @@ public class Usuario
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@NotNull(message = "O atributo Nome é Obrigatório!")
-	private String nome;
-
 	@Schema(example = "email@email.com.br")
 	@NotNull(message = "O atributo Usuário é Obrigatório!")
 	@Email(message = "O atributo Usuário deve ser um email válido!")
@@ -39,8 +36,6 @@ public class Usuario
 	@NotBlank(message = "O atributo Senha é Obrigatório!")
 	@Size(min = 8, message = "A Senha deve ter no mínimo 8 caracteres")
 	private String senha;
-
-	private String foto;
 	
 	private String tipo;
 
@@ -50,13 +45,11 @@ public class Usuario
 
 	// Primeiro método Construtor
 
-	public Usuario(Long id, String nome, String usuario, String senha, String foto, String tipo)
+	public Usuario(Long id, String usuario, String senha, String tipo)
 	{
 		this.id = id;
-		this.nome = nome;
 		this.usuario = usuario;
 		this.senha = senha;
-		this.foto = foto;
 		this.tipo = tipo;
 	}
 
@@ -74,15 +67,6 @@ public class Usuario
 		this.id = id;
 	}
 
-	public String getNome()
-	{
-		return nome;
-	}
-
-	public void setNome(String nome)
-	{
-		this.nome = nome;
-	}
 
 	public String getTipo()
 	{
@@ -114,15 +98,7 @@ public class Usuario
 		this.senha = senha;
 	}
 
-	public String getFoto()
-	{
-		return foto;
-	}
 
-	public void setFoto(String foto)
-	{
-		this.foto = foto;
-	}
 
 	public List<Produto> getProduto()
 	{
