@@ -1,24 +1,38 @@
 package com.fdr.forjadaraposa.model;
 
+/**
+ * A Classe UsuarioLogin não terá nenhuma annotation porque ela
+ * não irá gerar uma tabela no Banco de Dados.
+ * 
+ * A principal função desta classe é servir de apoio ao processo
+ * de login na api.
+ * 
+ */
+
 public class UsuarioLogin 
 {
 
 	private Long id;
 
+	private String nome;
+
 	private String usuario;
 
 	private String senha;
-	
+
+	private String foto;
+
 	private String token;
 	
 	private String tipo;
 
-
-	public UsuarioLogin(Long id, String usuario, String senha, String token, String tipo)
+	public UsuarioLogin(Long id, String nome, String usuario, String senha, String foto, String token, String tipo)
 	{
 		this.id = id;
+		this.nome = nome;
 		this.usuario = usuario;
 		this.senha = senha;
+		this.foto = foto;
 		this.token = token;
 		this.tipo = tipo;
 	}
@@ -34,7 +48,7 @@ public class UsuarioLogin
 		this.usuario = usuario;
 		this.senha = senha;
 	}
-
+	
 	public Long getId()
 	{
 		return id;
@@ -45,8 +59,6 @@ public class UsuarioLogin
 		this.id = id;
 	}
 
-	
-	
 	public String getTipo()
 	{
 		return tipo;
@@ -55,6 +67,16 @@ public class UsuarioLogin
 	public void setTipo(String tipo)
 	{
 		this.tipo = tipo;
+	}
+
+	public String getNome()
+	{
+		return nome;
+	}
+
+	public void setNome(String nome)
+	{
+		this.nome = nome;
 	}
 
 	public String getUsuario()
@@ -77,6 +99,16 @@ public class UsuarioLogin
 		this.senha = senha;
 	}
 
+	public String getFoto()
+	{
+		return foto;
+	}
+
+	public void setFoto(String foto)
+	{
+		this.foto = foto;
+	}
+
 	public String getToken()
 	{
 		return token;
@@ -88,5 +120,5 @@ public class UsuarioLogin
 	}
 	
 	
-	
+
 }

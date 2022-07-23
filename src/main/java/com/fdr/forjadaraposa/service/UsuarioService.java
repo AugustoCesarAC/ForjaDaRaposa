@@ -14,6 +14,11 @@ import com.fdr.forjadaraposa.model.Usuario;
 import com.fdr.forjadaraposa.model.UsuarioLogin;
 import com.fdr.forjadaraposa.repository.UsuarioRepository;
 
+/**
+ * A Anotação @Service indica que esta é uma Classe de Serviço, ou seja,
+ * implementa todas regras de negócio do Recurso Usuário.
+ */
+
 @Service
 public class UsuarioService
 {
@@ -31,7 +36,6 @@ public class UsuarioService
 			return Optional.empty();
 
 		usuario.setSenha(criptografarSenha(usuario.getSenha()));
-		
 		return Optional.of(usuarioRepository.save(usuario));
 	}
 
@@ -61,6 +65,8 @@ public class UsuarioService
 			if (compararSenhas(usuarioLogin.get().getSenha(), usuario.get().getSenha()))
 			{
 				usuarioLogin.get().setId(usuario.get().getId());
+				usuarioLogin.get().setNome(usuario.get().getNome());
+				usuarioLogin.get().setFoto(usuario.get().getFoto());
 				usuarioLogin.get().setTipo(usuario.get().getTipo());
 				usuarioLogin.get()
 						.setToken(gerarBasicToken(usuarioLogin.get().getUsuario(), usuarioLogin.get().getSenha()));
